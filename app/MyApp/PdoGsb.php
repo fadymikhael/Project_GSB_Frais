@@ -42,6 +42,16 @@ class PdoGsb{
 		return $ligne;
 	}
 
+	public function getComptable($login, $mdp)
+	{
+		$req = "select comptable.id as id, comptable.nom as nom, comptable.prenom as prenom from comptable 
+		where comptable.login='" . $login . "' and comptable.mdp='" . $mdp ."'";
+		$rs = $this->monPdo->query($req);
+		$ligne = $rs->fetch();
+		return $ligne;
+
+	}
+
 
 
 /**
