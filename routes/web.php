@@ -37,10 +37,16 @@ Route::post('listeFrais',[
         'uses'=>'etatFraisController@voirFrais'
 ]);
 
-Route::get('proto',[
-        'as' => 'chemin_proto',
-        'uses' => 'protoController@voirDernierFrais'
+Route::get('choisirvisiteurs',[
+        'as' => 'chemin_choisirvisiteurs',
+        'uses' => 'validationfraisController@choisirvisiteurs'
 ]);
+
+Route::post('choisirmois',[
+        'as' => 'chemin_choisirmois',
+        'uses' => 'validationfraisController@choisirmois'
+]);
+
 
 
         /*-------------------- Use case gérer les frais---------------------------*/

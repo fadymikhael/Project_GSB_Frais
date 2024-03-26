@@ -42,6 +42,9 @@ class PdoGsb{
 		return $ligne;
 	}
 
+
+	
+
 	public function getComptable($login, $mdp)
 	{
 		$req = "select comptable.id as id, comptable.nom as nom, comptable.prenom as prenom from comptable 
@@ -154,6 +157,14 @@ public function getMontantEngage($idVisiteur,$mois){
 		$dernierMois = $laLigne['dernierMois'];
 		return $dernierMois;
 	}
+
+/** @return le mois en fonction de l'id visiteur et l'etat CR */
+
+public function moisvisiteurscr($idVisiteur) {
+    $req = "SELECT mois FROM fichefrais WHERE idVisiteur = '$idVisiteur' AND idEtat = 'CR'";
+	$res = $this->monPdo->query($req);
+	return $res->fetchAll(PDO::FETCH_ASSOC);
+}
 	
 /**
  * Crée une nouvelle fiche de frais et les lignes de frais au forfait pour un visiteur et un mois donnés
