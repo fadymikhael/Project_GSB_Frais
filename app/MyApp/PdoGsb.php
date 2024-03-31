@@ -249,6 +249,44 @@ public function moisvisiteurscr($idVisiteur) {
 	}
 
 
+	/* Fonction pour récuperer la quantité de Forfait Etape en fonction du mois */
+
+	public function getForfaitEtp($idVisiteur, $mois) {
+		$req = "SELECT quantite FROM lignefraisforfait WHERE idVisiteur = '$idVisiteur' AND mois = $mois AND idFraisForfait = 'ETP'";
+		$res = $this->monPdo->query($req);
+		return $res->fetchColumn(); // Récupérer uniquement la valeur de la colonne "quantite" car sinon ca devient un tableau
+	}
+
+	/* Fonction pour récuperer la quantité de Frais KM en fonction du mois */
+
+	public function getForfaitKm($idVisiteur, $mois) {
+		$req = "SELECT quantite FROM lignefraisforfait WHERE idVisiteur = '$idVisiteur' AND mois = $mois AND idFraisForfait = 'KM'";
+		$res = $this->monPdo->query($req);
+		return $res->fetchColumn(); 
+	}
+		
+	/* Fonction pour récuperer la quantité de Nuitée hôtel en fonction du mois */
+
+
+	public function getForfaitNui($idVisiteur, $mois) {
+		$req = "SELECT quantite FROM lignefraisforfait WHERE idVisiteur = '$idVisiteur' AND mois = $mois AND idFraisForfait = 'NUI'";
+		$res = $this->monPdo->query($req);
+		return $res->fetchColumn(); 
+	}
+
+	/* Fonction pour récuperer la quantité de Repas Restaurant en fonction du mois */
+
+	public function getForfaitRep($idVisiteur, $mois) {
+		$req = "SELECT quantite FROM lignefraisforfait WHERE idVisiteur = '$idVisiteur' AND mois = $mois AND idFraisForfait = 'REP'";
+		$res = $this->monPdo->query($req);
+		return $res->fetchColumn(); 
+	}
+
+
+
+
+
+
 
 
 

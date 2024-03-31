@@ -38,8 +38,49 @@ class validationfraisController extends Controller
 
         return view('choisirmois')->with([
             'comptable' => $comptable,
-            'mois' => $mois
-        ]);;
+            'mois' => $mois, 
+            'visiteur' => $visiteurId,
+        ]);
     }
+
+    public function fichefraisCR(Request $request) {
+        $visiteurId = $request->input('visiteur_id');
+        $mois = $request->input('lstMois');
+        $ETP = PdoGsb::getForfaitEtp($visiteurId, $mois);
+        $KM = PdoGsb::getForfaitKm($visiteurId, $mois);
+        $NUI = PdoGsb::getForfaitNui($visiteurId, $mois);
+        $REP = PdoGsb::getForfaitRep($visiteurId, $mois);
+
+        $comptable = session('comptable');
+        //dd($ETP);
+
+
+
+        return view('fichefraisCR')->with([
+            'ETP' => $ETP,
+            'KM' => $KM,
+            'NUI' => $NUI,
+            'REP' => $REP,
+
+
+
+            'comptable' => $comptable,
+
+        ]);
+
+    }
+
+    public function updateFicheFrais(Request $request) {
+
+        $ETP = $request->input('ETP');
+        $KM = $request->input('KM');
+        $NUI = $request->input('NUI');
+        $REP = $request->input('REP');
+
+    }
+
+        
+
+   
 }
 

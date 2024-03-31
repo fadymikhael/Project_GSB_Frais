@@ -47,6 +47,11 @@ Route::post('choisirmois',[
         'uses' => 'validationfraisController@choisirmois'
 ]);
 
+Route::post('fichefraisCR', [
+        'as' => 'chemin_fichefraisCR',
+        'uses' => 'validationfraisController@fichefraisCR'
+]);
+
 
 
         /*-------------------- Use case gérer les frais---------------------------*/
