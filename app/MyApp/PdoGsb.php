@@ -282,7 +282,17 @@ public function moisvisiteurscr($idVisiteur) {
 		return $res->fetchColumn(); 
 	}
 
+	/* Fonction pour update lesfichefrais CR */
 
+	public function updateFicheFraisForfait($idVisiteur, $mois, $forfaitType, $quantite) {
+		$req = "UPDATE lignefraisforfait 
+				SET quantite = $quantite
+				WHERE idVisiteur = '$idVisiteur'
+				AND mois = $mois 
+				AND idFraisForfait = '$forfaitType'";
+		
+	$this->monPdo->exec($req);
+	}
 
 
 

@@ -52,6 +52,12 @@ Route::post('fichefraisCR', [
         'uses' => 'validationfraisController@fichefraisCR'
 ]);
 
+Route::post('updateFicheFraisCr', [
+        'as' => 'chemin_updateFicheFraisCr',
+        'uses' => 'validationfraisController@updateFicheFraisCr'
+]);
+
+
 
 
         /*-------------------- Use case gérer les frais---------------------------*/

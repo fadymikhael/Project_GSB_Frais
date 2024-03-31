@@ -52,7 +52,7 @@ class validationfraisController extends Controller
         $REP = PdoGsb::getForfaitRep($visiteurId, $mois);
 
         $comptable = session('comptable');
-        //dd($ETP);
+
 
 
 
@@ -61,21 +61,40 @@ class validationfraisController extends Controller
             'KM' => $KM,
             'NUI' => $NUI,
             'REP' => $REP,
-
-
-
+            'visiteur' => $visiteurId,
+            'mois' => $mois,
             'comptable' => $comptable,
 
         ]);
 
     }
 
-    public function updateFicheFrais(Request $request) {
+    public function updateFicheFraisCr(Request $request) {
 
+        $visiteurId = $request->input('visiteur_id');
+        $mois = $request->input('mois');
         $ETP = $request->input('ETP');
         $KM = $request->input('KM');
         $NUI = $request->input('NUI');
         $REP = $request->input('REP');
+        $comptable = session('comptable');
+
+
+
+        PdoGsb::updateFicheFraisForfait($visiteurId, $mois, 'ETP', $ETP);
+        PdoGsb::updateFicheFraisForfait($visiteurId, $mois, 'KM', $KM);
+        PdoGsb::updateFicheFraisForfait($visiteurId, $mois, 'NUI', $NUI);
+        PdoGsb::updateFicheFraisForfait($visiteurId, $mois, 'REP', $REP);
+
+
+        return view('fraiscrvalide')->with([
+            'comptable' => $comptable,
+            'visiteur' => $visiteurId,
+            'mois' => $mois,
+
+        ]);
+
+
 
     }
 
