@@ -88,8 +88,21 @@ public function getMontantEngage($idVisiteur,$mois){
 	$laLigne = $res->fetch();
 	return $laLigne;
 }
-/*==============================================================*/
+
+
+public function updateFicheFraismontant($idVisiteur, $mois) {
+    $req = "UPDATE fichefrais 
+            SET montantValide = (
+                SELECT SUM(fraisforfait.montant * lignefraisforfait.quantite) as montant
+                FROM fraisforfait
+                INNER JOIN lignefraisforfait ON fraisforfait.id = lignefraisforfait.idFraisForfait
+                WHERE lignefraisforfait.idVisiteur = '$idVisiteur' AND lignefraisforfait.mois = '$mois'
+            )
+            WHERE idVisiteur = '$idVisiteur' AND mois = '$mois'";
     
+    // Exécution de la requête
+    $res = $this->monPdo->exec($req);
+}
 
 /**
  * Retourne tous les id de la table FraisForfait

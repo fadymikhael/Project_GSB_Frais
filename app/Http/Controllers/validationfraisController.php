@@ -85,6 +85,7 @@ class validationfraisController extends Controller
         PdoGsb::updateFicheFraisForfait($visiteurId, $mois, 'KM', $KM);
         PdoGsb::updateFicheFraisForfait($visiteurId, $mois, 'NUI', $NUI);
         PdoGsb::updateFicheFraisForfait($visiteurId, $mois, 'REP', $REP);
+        PdoGsb::updateFicheFraismontant($visiteurId,$mois);
 
 
         return view('fraiscrvalide')->with([
