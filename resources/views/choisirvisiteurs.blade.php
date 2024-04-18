@@ -15,13 +15,11 @@
                     </option>
                     @endforeach
                 </select>
-</p>
-</div>
-            <p> 
-                <input id="ok" type="submit" value="Valider" size="20" />
-                <input id="annuler" type="reset" value="Effacer" size="20" />
-            </p> 
-        
+            </p>
+        </div>
+        <div style="text-align: right;margin-top: 20px">
+            <input id="ok" type="submit" value="Valider" size="20" />
+        </div>
     </form>
 </div>
 @endsection

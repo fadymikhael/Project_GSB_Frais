@@ -141,6 +141,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Barryvdh\DomPDF\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -179,10 +180,10 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\MyPdoServiceProvider::class,
         App\Providers\MyDateServiceProvider::class
-       
-       
-        
-        
+
+
+
+
 
     ],
 
@@ -234,9 +235,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PdoGsb' => App\Facades\PdoGsb::class,
         'MyDate' => App\Facades\MyDate::class,
-        'MyApp' => App\Facades\MyApp::class
-        
-       
+        'MyApp' => App\Facades\MyApp::class,
+        'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
+
     ],
 
 ];

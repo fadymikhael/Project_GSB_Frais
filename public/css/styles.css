@@ -200,7 +200,7 @@ select:hover {
 }
 
 
-/*  Le texte des messages d'erreur est de couleur rose sur fond ocre et de 
+/*  Le texte des messages d'erreur est de couleur rose sur fond ocre et de
 taille de caract�res l�g�rement sup�rieure � la normale */
 
 .erreur {
@@ -237,7 +237,7 @@ taille de caract�res l�g�rement sup�rieure � la normale */
 
 /* Style pour les liens de la page principale */
 
-#contenu a {
+/* #contenu a {
     font-size: 1.1em;
     color: gray;
     text-decoration: none;
@@ -247,7 +247,7 @@ taille de caract�res l�g�rement sup�rieure � la normale */
     text-decoration: underline;
     background-color: #D9BB7A;
     font-size: 1em;
-}
+} */
 
 
 /* Style pour les parties importantes de la page principale */
@@ -278,12 +278,40 @@ taille de caract�res l�g�rement sup�rieure � la normale */
     vertical-align: top;
     font-weight: bold;
     border-bottom: 0.1em solid #777777;
-    font-size: 1.1em;
+    font-size: 2.1em;
 }
 
 #contenu td {
     border: 1px solid #777777;
+    padding: 0.8em; /* Augmente le padding à l'intérieur des cellules */
+    /* Optionnel : Ajuster la taille de la police pour plus de lisibilité */
+    font-size: 1.1em; /* Ajustez la taille selon vos besoins */
 }
+
+table.listeLegere th,
+table.listeLegere td {
+    border: dotted rgb(178, 207, 81) 0.1em;
+    padding: 0.8em; /* Augmente également le padding ici pour l'uniformité */
+    vertical-align: top;
+    text-align: left;
+    /* Optionnel : Ajuster la taille de la police pour plus de lisibilité */
+    font-size: 1.1em; /* Ajustez la taille selon vos besoins */
+}
+table.listeLegere {
+    margin-bottom: 1em; /* Augmente la marge en bas du tableau */
+    line-height: 1.5; /* Augmente l'espacement entre les lignes pour plus de lisibilité */
+}
+table.listeLegere th.date,
+table.listeLegere th.montant {
+    width: 20%; /* Ajustez la largeur des colonnes selon le besoin */
+    color: black;
+}
+
+table.listeLegere th.libelle {
+    width: 60%; /* Ajustez en conséquence */
+    color: black;
+}
+
 
 #contenu h3 {
     font-size: 1.2em;
@@ -355,3 +383,25 @@ table.listeLegere th.libelle {
     width: 95%;
 }
 
+.custom-btn {
+    margin-top: 20px; /* Ajoute un espace de 20px au-dessus du bouton */
+    background-color: #3490dc; /* Bleu */
+    color: #ffffff; /* Blanc pour une meilleure visibilité */
+    padding: 12px 20px; /* Ajustement du padding pour un bouton plus grand */
+    border: none;
+    border-radius: 8px; /* Bords plus arrondis pour un look moderne */
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease; /* Transition douce pour toutes les propriétés */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour la profondeur */
+    font-weight: bold; /* Texte en gras pour se démarquer */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+.custom-btn:hover {
+    background-color: #2779bd; /* Bleu plus foncé au survol */
+    color: #ffffff; /* Maintient la couleur du texte en blanc */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol pour un effet "pop" */
+    transform: translateY(-2px); /* Légère élévation du bouton lors du survol */
+}

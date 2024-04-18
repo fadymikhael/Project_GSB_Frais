@@ -97,8 +97,11 @@ public function updateFicheFraismontant($idVisiteur, $mois) {
                 FROM fraisforfait
                 INNER JOIN lignefraisforfait ON fraisforfait.id = lignefraisforfait.idFraisForfait
                 WHERE lignefraisforfait.idVisiteur = '$idVisiteur' AND lignefraisforfait.mois = '$mois'
-            )
+            ),
+            dateModif = NOW(),
+			idEtat = 'VA' 
             WHERE idVisiteur = '$idVisiteur' AND mois = '$mois'";
+			
     
     // Exécution de la requête
     $res = $this->monPdo->exec($req);
@@ -177,6 +180,28 @@ public function moisvisiteurscr($idVisiteur) {
     $req = "SELECT mois FROM fichefrais WHERE idVisiteur = '$idVisiteur' AND idEtat = 'CR'";
 	$res = $this->monPdo->query($req);
 	return $res->fetchAll(PDO::FETCH_ASSOC);
+}
+
+public function touslesmoisva() {
+	$req = "SELECT mois FROM fichefrais WHERE idEtat = 'VA'";
+	$res = $this->monPdo->query($req);
+	return $res->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/** afficher les frais CR avec Visiteur + Montant */
+
+public function voirFicheCrVisiteurMontant($mois){
+	$req = $this->monPdo->prepare("SELECT visiteur.nom, visiteur.prenom , fichefrais.mois, fichefrais.montantValide
+	FROM visiteur
+	INNER JOIN
+	fichefrais
+	ON
+	visiteur.id = fichefrais.idVisiteur
+	WHERE
+	mois = ?");
+	$req->execute([$mois]);
+	$lignes = $req->fetchAll();
+	return $lignes;
 }
 	
 /**
