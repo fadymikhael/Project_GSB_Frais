@@ -43,7 +43,7 @@
         <input type="hidden" name="visiteur_id" value="{{ $visiteur }}">
 
         <!-- Affichage des erreurs -->
-        @if(isset($erreur) && count($erreur) > 0)
+        @if(isset($erreur))
     <div class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; padding: 20px;">
         <ul style="list-style-type: none; padding: 0;">
             @foreach ($erreur as $message)

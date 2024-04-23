@@ -18,10 +18,7 @@ class validationfraisController extends Controller
         $visiteurs = DB::table('visiteur')->select('id', 'nom', 'prenom')->get();
 
 
-
-
         $comptable = session('comptable');
-
 
 
 
@@ -64,8 +61,6 @@ class validationfraisController extends Controller
         $REP = PdoGsb::getForfaitRep($visiteurId, $mois);
 
         $comptable = session('comptable');
-
-
 
 
         return view('fichefraisCR')->with([
@@ -111,7 +106,7 @@ public function updateFicheFraisCr(Request $request)
 
      // Vérification des valeurs numériques
      if (!is_numeric($etp) || !is_numeric($km) || !is_numeric($nui) || !is_numeric($rep)) {
-        $erreur[] = "Veuillez entrer des valeurs numériques pour les frais.";
+        $erreur[] = "Veuillez entrer des valeurs numériques";
         return view('fichefraisCR', [
             'erreur' => $erreur,
             'ETP' => $etp,
