@@ -39,11 +39,19 @@ class etatFraisController extends Controller
             $idVisiteur = $visiteur['id'];
             $leMois = $request['lstMois'];
 
+<<<<<<< Updated upstream
+=======
+            // Instanciation de l'objet PdoGsb
+>>>>>>> Stashed changes
             $pdoGsb = new PdoGsb();
             $lesMois = $pdoGsb->getLesMoisDisponibles($idVisiteur);
             $lesFraisForfait = $pdoGsb->getLesFraisForfait($idVisiteur, $leMois);
             $lesInfosFicheFrais = $pdoGsb->getLesInfosFicheFrais($idVisiteur, $leMois);
 
+<<<<<<< Updated upstream
+=======
+            // Appel des méthodes statiques de la classe MyDate
+>>>>>>> Stashed changes
             $numAnnee = MyDate::extraireAnnee($leMois);
             $numMois = MyDate::extraireMois($leMois);
             $libEtat = $lesInfosFicheFrais['libEtat'];
@@ -66,3 +74,8 @@ class etatFraisController extends Controller
         }
     }
 }
+<<<<<<< Updated upstream
+=======
+}
+}
+>>>>>>> Stashed changes
