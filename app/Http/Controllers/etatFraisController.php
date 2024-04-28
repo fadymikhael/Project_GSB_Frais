@@ -14,7 +14,6 @@ class etatFraisController extends Controller
             $visiteur = session('visiteur');
             $idVisiteur = $visiteur['id'];
 
-            // Instanciation de l'objet PdoGsb
             $pdoGsb = new PdoGsb();
             $lesMois = $pdoGsb->getLesMoisDisponibles($idVisiteur);
 
@@ -40,13 +39,11 @@ class etatFraisController extends Controller
             $idVisiteur = $visiteur['id'];
             $leMois = $request['lstMois'];
 
-            // Instanciation de l'objet PdoGsb
             $pdoGsb = new PdoGsb();
             $lesMois = $pdoGsb->getLesMoisDisponibles($idVisiteur);
             $lesFraisForfait = $pdoGsb->getLesFraisForfait($idVisiteur, $leMois);
             $lesInfosFicheFrais = $pdoGsb->getLesInfosFicheFrais($idVisiteur, $leMois);
 
-            // Appel des méthodes statiques de la classe MyDate
             $numAnnee = MyDate::extraireAnnee($leMois);
             $numMois = MyDate::extraireMois($leMois);
             $libEtat = $lesInfosFicheFrais['libEtat'];

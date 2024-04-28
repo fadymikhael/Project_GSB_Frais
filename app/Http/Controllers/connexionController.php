@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\MyApp\PdoGsb; // Assurez-vous que le chemin d'accès à la classe PdoGsb est correct
+use App\MyApp\PdoGsb;
 
 class connexionController extends Controller
 {
@@ -16,11 +16,7 @@ class connexionController extends Controller
     {
         $login = $request->input('login');
         $mdp = $request->input('mdp');
-
-        // Instanciation de la classe PdoGsb
         $pdoGsb = new PdoGsb();
-
-        // Appel des méthodes sur l'objet $pdoGsb
         $visiteur = $pdoGsb->getInfosVisiteur($login, $mdp);
         $comptable = $pdoGsb->getComptable($login, $mdp);
 
