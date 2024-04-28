@@ -1,41 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use PdoGsb;
+use App\MyApp\PdoGsb; // Assurez-vous que le chemin d'accès à la classe PdoGsb est correct
 
 class connexionController extends Controller
 {
-    function connecter(){
-        
-        return view('connexion')->with('erreurs',null);
-    } 
-    function valider(Request $request){
-        $login = $request['login'];
-        $mdp = $request['mdp'];
-        $visiteur = PdoGsb::getInfosVisiteur($login,$mdp);
-        $comptable = PdoGsb::getComptable($login,$mdp);
-        if(!is_array($visiteur) && !is_array($comptable)){
+    public function connecter()
+    {
+        return view('connexion')->with('erreurs', null);
+    }
+
+    public function valider(Request $request)
+    {
+        $login = $request->input('login');
+        $mdp = $request->input('mdp');
+
+        // Instanciation de la classe PdoGsb
+        $pdoGsb = new PdoGsb();
+
+        // Appel des méthodes sur l'objet $pdoGsb
+        $visiteur = $pdoGsb->getInfosVisiteur($login, $mdp);
+        $comptable = $pdoGsb->getComptable($login, $mdp);
+
+        if (!is_array($visiteur) && !is_array($comptable)) {
             $erreurs[] = "Login ou mot de passe incorrect(s)";
-            return view('connexion')->with('erreurs',$erreurs);
+            return view('connexion')->with('erreurs', $erreurs);
         }
 
-        if(is_array($visiteur)){
+        if (is_array($visiteur)) {
             session(['visiteur' => $visiteur]);
-            return view('sommaire')->with('visiteur',session('visiteur'));
+            return view('sommaire')->with('visiteur', session('visiteur'));
         }
 
-        if(is_array($comptable)){
+        if (is_array($comptable)) {
             session(['comptable' => $comptable]);
             return view('sommairecomptable')->with('comptable', session('comptable'));
         }
-
-
-
-    } 
-    function deconnecter(){
-            session(['visiteur' => null]);
-            return redirect()->route('chemin_connexion');
     }
-       
+
+    public function deconnecter()
+    {
+        session(['visiteur' => null]);
+        return redirect()->route('chemin_connexion');
+    }
 }

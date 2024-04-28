@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +14,7 @@
 */
 
 /*-------------------- Use case connexion---------------------------*/
+
 Route::get('/', [
     'as' => 'chemin_connexion',
     'uses' => 'connexionController@connecter'
