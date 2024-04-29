@@ -1,11 +1,10 @@
-
----
-
 # GSB Expense Management with Laravel
 
 This GSB Expense Management project is a web application developed using the Laravel framework. It allows users to enter their expenses for the current month or view expenses from previous months. Supported expenses include: Travel Allowance, Mileage, Hotel Overnight, and Restaurant Meals.
 
-This application is a simple yet powerful tool for effectively managing your professional expenses. ✅
+In addition, the application provides features for accountants to manage user expenses, including viewing and modifying them. Accountants can review and approve expenses submitted by users, ensuring compliance with company policies and accurate expense reporting.
+
+This application is a simple yet powerful tool for effectively managing both user and accountant professional expenses. ✅
 
 <p align="center">
   <img alt="Laravel" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" width="50" height="50"/>
@@ -18,8 +17,15 @@ This application is a simple yet powerful tool for effectively managing your pro
 ## Features
 
 - ✏️ **Expense Entry and Viewing**: Users can enter their expenses for the current month or view expenses from previous months.
-- 📊 **Expense Management by an Accountant**: Accountants can modify or approve expenses for a user.
+- 📊 **Expense Management by an Accountant**: Accountants can modify, approve, or reject expenses submitted by users, ensuring accurate expense reporting.
 - 📄 **Expense Download as PDF**: Ability to download expenses for each month in PDF format.
+
+## Additional Features
+
+- 👩‍💼 **Accountant Interface**: An interface for accountants to manage user expenses, including viewing, modifying, approving, or rejecting them.
+- 📝 **Expense Authorization**: Authorization system to ensure only authorized accountants can access and modify user expenses, maintaining data integrity and security.
+- 📜 **PDF Generation**: Generate PDF reports for user expenses, allowing for easy printing, sharing, and record-keeping.
+
 
 ## Prerequisites
 
