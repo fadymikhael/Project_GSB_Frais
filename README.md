@@ -9,7 +9,7 @@ This application is a simple yet powerful tool for effectively managing both use
 <p align="center">
   <img alt="Laravel" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" width="50" height="50"/>
   <img alt="PHP" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="50" height="50"/>
-  <img alt="MySQL" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" width="50" height="50"/>
+  <img alt="MySQL" src="https://pngimg.com/uploads/mysql/mysql_PNG23.png" width="60" height="50"/>
   <img alt="HTML" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" width="50" height="50"/>
   <img alt="CSS" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" width="50" height="50"/>
 </p>
